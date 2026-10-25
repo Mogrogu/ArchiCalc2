@@ -2,7 +2,37 @@ import fs from 'fs';
 import path from 'path';
 
 const fontBase64 = fs.readFileSync('public/fonts/Archistico_Simple.ttf').toString('base64');
-const iconBase64 = fs.readFileSync('public/CalcIcon.png').toString('base64');
+const iconBase64 = fs.readFileSync('public/assets/aistudio/CalcIcon_1f054790.png').toString('base64');
+const appleTouchBase64 = fs.existsSync('public/apple-touch-icon.png')
+  ? fs.readFileSync('public/apple-touch-icon.png').toString('base64')
+  : iconBase64;
+
+const standaloneManifest = JSON.stringify({
+  id: '/',
+  name: 'ArchiCalc - Architectural Calculator',
+  short_name: 'ArchiCalc',
+  description: 'Architectural dimensional calculator for iOS and Android. Feet, inches, fractions & metric.',
+  start_url: '.',
+  display: 'standalone',
+  orientation: 'portrait',
+  background_color: '#0f172a',
+  theme_color: '#f97316',
+  icons: [
+    {
+      src: `data:image/png;base64,${iconBase64}`,
+      sizes: '50x50',
+      type: 'image/png',
+      purpose: 'any'
+    },
+    {
+      src: `data:image/png;base64,${appleTouchBase64}`,
+      sizes: '180x180',
+      type: 'image/png',
+      purpose: 'any maskable'
+    }
+  ]
+});
+const manifestBase64 = Buffer.from(standaloneManifest).toString('base64');
 
 const htmlContent = `<!DOCTYPE html>
 <html lang="en">
@@ -17,9 +47,12 @@ const htmlContent = `<!DOCTYPE html>
   <title>ArchiCalc Beta 1.3.1</title>
   
   <link rel="icon" type="image/png" href="data:image/png;base64,\${iconBase64}">
+  <link rel="icon" type="image/png" href="assets/aistudio/CalcIcon_1f054790.png">
   <link rel="icon" type="image/png" href="CalcIcon.png">
-  <link rel="apple-touch-icon" href="data:image/png;base64,\${iconBase64}">
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,\${appleTouchBase64}">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="apple-touch-icon" href="CalcIcon.png">
+  <link rel="manifest" href="data:application/manifest+json;base64,\${manifestBase64}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -246,7 +279,7 @@ const htmlContent = `<!DOCTYPE html>
       <!-- Modal Header -->
       <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-950/50">
         <div class="flex items-center gap-2.5">
-          <img src="data:image/png;base64,\${iconBase64}" alt="ArchiCalc Icon" class="w-8 h-8 rounded-lg shadow-xs object-cover border border-orange-500/20">
+          <img src="data:image/png;base64,${iconBase64}" alt="ArchiCalc Icon" class="w-8 h-8 rounded-lg shadow-xs object-contain border border-orange-500/20 bg-white p-0.5">
           <div>
             <h2 class="text-lg font-bold text-slate-900 dark:text-slate-50 flex items-center gap-2">
               ArchiCalc

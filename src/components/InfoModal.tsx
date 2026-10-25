@@ -37,9 +37,9 @@ export const InfoModal: React.FC<InfoModalProps> = ({
         <div className="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-950/50">
           <div className="flex items-center gap-2.5">
             <img
-              src="/CalcIcon.png"
+              src="/assets/aistudio/CalcIcon_1f054790.png"
               alt="ArchiCalc Icon"
-              className="w-8 h-8 rounded-lg shadow-xs object-cover border border-orange-500/20"
+              className="w-8 h-8 rounded-lg shadow-xs object-contain border border-orange-500/20 bg-white p-0.5"
             />
             <div>
               <h2 className="text-lg font-bold text-slate-900 dark:text-slate-50 flex items-center gap-2">
