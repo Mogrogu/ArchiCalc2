@@ -33,14 +33,14 @@ import { useHaptics } from './hooks/useHaptics';
 const MAX_HISTORY_ITEMS = 30;
 
 export default function App() {
-  // Theme state
+  // Theme state: dark mode is default across all screens and devices
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     try {
       const saved = localStorage.getItem('archicalc_dark_mode');
       if (saved !== null) return saved === 'true';
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return true; // Dark mode is default on first open
     } catch {
-      return false;
+      return true;
     }
   });
 
@@ -921,9 +921,9 @@ export default function App() {
   const hasMemory = calculatorMode === 'regular' ? regMemory !== 0 : archMemory.display !== '0';
 
   return (
-    <div className={`w-full h-screen h-[100dvh] max-h-screen max-h-[100dvh] bg-slate-100 dark:bg-slate-950 flex flex-col items-center justify-center overflow-hidden ${darkMode ? 'dark' : ''}`}>
+    <div className={`w-full h-full h-[100dvh] max-h-[100dvh] bg-slate-100 dark:bg-slate-950 flex flex-col items-center justify-center overflow-hidden ${darkMode ? 'dark' : ''}`}>
       {/* Phone-optimized container snapping to max height */}
-      <main className="w-full max-w-[460px] h-full h-[100dvh] max-h-screen max-h-[100dvh] bg-white dark:bg-slate-900 sm:rounded-none sm:shadow-2xl border-0 sm:border-x border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden relative safe-top safe-bottom">
+      <main className="w-full max-w-[460px] h-full h-[100dvh] max-h-[100dvh] bg-white dark:bg-slate-900 sm:rounded-none sm:shadow-2xl border-0 sm:border-x border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden relative safe-top safe-bottom">
         {/* App Header */}
         <Header
           soundEnabled={soundEnabled}

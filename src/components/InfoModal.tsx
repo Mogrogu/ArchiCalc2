@@ -37,9 +37,9 @@ export const InfoModal: React.FC<InfoModalProps> = ({
         <div className="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-950/50">
           <div className="flex items-center gap-2.5">
             <img
-              src="/assets/aistudio/CalcIcon_1f054790.png"
+              src="./CalcIcon.png"
               alt="ArchiCalc Icon"
-              className="w-8 h-8 rounded-lg shadow-xs object-contain border border-orange-500/20 bg-white p-0.5"
+              className="w-8 h-8 rounded-lg shadow-xs object-contain border border-orange-500/20 bg-white dark:bg-slate-800 p-0.5"
             />
             <div>
               <h2 className="text-lg font-bold text-slate-900 dark:text-slate-50 flex items-center gap-2">
@@ -77,7 +77,7 @@ export const InfoModal: React.FC<InfoModalProps> = ({
             </div>
             <div className="text-xs">
               <strong className="text-orange-900 dark:text-orange-200 block text-sm font-semibold mb-0.5">
-                Dual Architectural & Regular Modes
+                Dual Architectural & Standard Modes
               </strong>
               Tap the <strong>toggle switch in the bottom right corner</strong> to switch instantly between the Architectural Calculator and a Standard Calculator. All numbers and basic keys stay in the exact same positions, while architectural functions seamlessly swap with standard functions (<code className="text-xs bg-orange-200/50 dark:bg-orange-900/50 px-1 py-0.5 rounded">%</code>, <code className="text-xs bg-orange-200/50 dark:bg-orange-900/50 px-1 py-0.5 rounded">√x</code>, <code className="text-xs bg-orange-200/50 dark:bg-orange-900/50 px-1 py-0.5 rounded">x²</code>, <code className="text-xs bg-orange-200/50 dark:bg-orange-900/50 px-1 py-0.5 rounded">1/x</code>, <code className="text-xs bg-orange-200/50 dark:bg-orange-900/50 px-1 py-0.5 rounded">π</code>, <code className="text-xs bg-orange-200/50 dark:bg-orange-900/50 px-1 py-0.5 rounded">xʸ</code>, <code className="text-xs bg-orange-200/50 dark:bg-orange-900/50 px-1 py-0.5 rounded">M+ / M- / MR</code>).
             </div>

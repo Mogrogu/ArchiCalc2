@@ -49,7 +49,7 @@ export const Display: React.FC<DisplayProps> = ({
   }, [displayValue]);
 
   return (
-    <div className="flex flex-col flex-1 min-h-[110px] max-h-[35%] bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
+    <div className="flex flex-col flex-1 min-h-[85px] sm:min-h-[110px] max-h-[35%] bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
       {/* History Tape */}
       <div
         ref={historyTapeRef}
@@ -90,7 +90,7 @@ export const Display: React.FC<DisplayProps> = ({
       </div>
 
       {/* Main Display container */}
-      <div className="px-4 py-2 flex flex-col justify-end items-end w-full select-text">
+      <div className="px-4 py-1.5 sm:py-2 flex flex-col justify-end items-end w-full select-text">
         {/* Secondary Dimensional / Mode Status Line */}
         <div className="h-5 w-full text-right text-xs font-medium text-slate-500 dark:text-slate-400 flex items-center justify-between">
           <div className="flex items-center gap-1.5">
@@ -100,7 +100,7 @@ export const Display: React.FC<DisplayProps> = ({
               </span>
             )}
             <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-              {calculatorMode === 'architectural' ? 'ARCHI' : 'REGULAR'}
+              {calculatorMode === 'architectural' ? 'ARCHI' : 'STANDARD'}
             </span>
             {copiedTape && (
               <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium animate-pulse">
